@@ -40,46 +40,47 @@
             <!-- Weather info section -->
             <section class="col-9">
                 <!-- City preview - h2 and spans will be added using JS-->
-                <div>
-                    <h2>Atlanta (6/27/2020) ⛅</h2>
-                    <!--  -->
-                    <p>Temperature: <span id="temperature">90.9</span> °F</p>
-                    <p>Humidity: <span id="humidity">41</span>%</p>
-                    <p>Wind Speed: <span id="wind-speed">4.7</span> MPH</p>
-                    <p>UV Index: <span id="uv-index">9.49</span></p>
+                <div id="city-preview" class="card m-3 p-3">
+                    <h2 class="card-title">Atlanta (6/27/2020) ⛅</h2>
+                    <div class="card-body">
+                        <p>Temperature: <span id="temperature">90.9</span> °F</p>
+                        <p>Humidity: <span id="humidity">41</span> %</p>
+                        <p>Wind Speed: <span id="wind-speed">4.7</span> MPH</p>
+                        <p>UV Index: <span id="uv-index" class="bg-danger text-white p-2">9.49</span></p>
+                    </div>
                 </div>
                 <!-- 5 day forecast -->
-                <div>
+                <div class="p-3">
                     <h3>5-Day Forecast:</h3>
                     <!-- all five cards will be added using JS -->
                     <div class="row">
-                        <div class="col">
-                            <h4>6/28/2020</h4>
-                            <p>⛅</p>
+                        <div class="col card text-white bg-primary p-3 m-1">
+                            <h4 class="card-title">6/28/2020</h4>
+                            <p class="card-body display-4">⛅</p>
                             <p>Temp: 86.84 °F</p>
                             <p>Humidity: 43%</p>
                         </div>
-                        <div class="col">
-                            <h4>6/29/2020</h4>
-                            <p>⛅</p>
+                        <div class="col card text-white bg-primary p-3 m-1">
+                            <h4 class="card-title">6/29/2020</h4>
+                            <p class="card-body display-4">⛅</p>
                             <p>Temp: 86.84 °F</p>
                             <p>Humidity: 43%</p>
                         </div>
-                        <div class="col">
-                            <h4>6/30/2020</h4>
-                            <p>⛅</p>
+                        <div class="col card text-white bg-primary p-3 m-1">
+                            <h4 class="card-title">6/30/2020</h4>
+                            <p class="card-body display-4">⛅</p>
                             <p>Temp: 86.84 °F</p>
                             <p>Humidity: 43%</p>
                         </div>
-                        <div class="col">
-                            <h4>7/1/2020</h4>
-                            <p>⛅</p>
+                        <div class="col card text-white bg-primary p-3 m-1">
+                            <h4 class="card-title">7/1/2020</h4>
+                            <p class="card-body display-4">⛅</p>
                             <p>Temp: 86.84 °F</p>
                             <p>Humidity: 43%</p>
                         </div>
-                        <div class="col">
-                            <h4>7/2/2020</h4>
-                            <p>⛅</p>
+                        <div class="col card text-white bg-primary p-3 m-1">
+                            <h4 class="card-title">7/2/2020</h4>
+                            <p class="card-body display-4">⛅</p>
                             <p>Temp: 86.84 °F</p>
                             <p>Humidity: 43%</p>
                         </div>
