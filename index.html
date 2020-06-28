@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <title>Weather Dashboard</title>
+    </head>
+    <body>
+        <!-- Header content -->
+        <header>
+            <h1>Weather Dashboard</h1>
+        </header>
+        <!-- Main content -->
+        <main class="row">
+            <!-- Card to search for and view previous cities -->
+            <section class="col-3">
+                <!-- City search block -->
+                <div>
+                    <h3>Search for a City:</h2>
+                    <form id="city-search">
+                        <input type="text" autofocus="true" name="city" id="city">
+                        <button type="submit">🔎</button>
+                    </form>
+                </div>
+                <!-- City list -->
+                <ul>
+                    <!-- List items added with JS -->
+                    <li>Austin</li>
+                    <li>Chicago</li>
+                    <li>New York</li>
+                    <li>Orlando</li>
+                    <li>San Francisco</li>
+                </ul>
+            </section>
+            <!-- Weather info section -->
+            <section class="col-9">
+                <!-- City preview - h2 and spans will be added using JS-->
+                <div>
+                    <h2>Atlanta (6/27/2020) ⛅</h2>
+                    <!--  -->
+                    <p>Temperature: <span id="temperature">90.9</span> °F</p>
+                    <p>Humidity: <span id="humidity">41</span>%</p>
+                    <p>Wind Speed: <span id="wind-speed">4.7</span> MPH</p>
+                    <p>UV Index: <span id="uv-index">9.49</span></p>
+                </div>
+                <!-- 5 day forecast -->
+                <div>
+                    <h3>5-Day Forecast:</h3>
+                    <!-- all five cards will be added using JS -->
+                    <div class="row">
+                        <div class="col">
+                            <h4>6/28/2020</h4>
+                            <p>⛅</p>
+                            <p>Temp: 86.84 °F</p>
+                            <p>Humidity: 43%</p>
+                        </div>
+                        <div class="col">
+                            <h4>6/29/2020</h4>
+                            <p>⛅</p>
+                            <p>Temp: 86.84 °F</p>
+                            <p>Humidity: 43%</p>
+                        </div>
+                        <div class="col">
+                            <h4>6/30/2020</h4>
+                            <p>⛅</p>
+                            <p>Temp: 86.84 °F</p>
+                            <p>Humidity: 43%</p>
+                        </div>
+                        <div class="col">
+                            <h4>7/1/2020</h4>
+                            <p>⛅</p>
+                            <p>Temp: 86.84 °F</p>
+                            <p>Humidity: 43%</p>
+                        </div>
+                        <div class="col">
+                            <h4>7/2/2020</h4>
+                            <p>⛅</p>
+                            <p>Temp: 86.84 °F</p>
+                            <p>Humidity: 43%</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="./assets/js/script.js"></script>
+    </body>
+</html>
