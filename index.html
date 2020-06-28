@@ -4,34 +4,37 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
         <link rel="stylesheet" href="./assets/css/style.css">
         <title>Weather Dashboard</title>
     </head>
     <body>
         <!-- Header content -->
         <header>
-            <h1>Weather Dashboard</h1>
+            <h1 class="p-3 bg-dark text-white text-center mb-0">Weather Dashboard</h1>
         </header>
         <!-- Main content -->
         <main class="row">
             <!-- Card to search for and view previous cities -->
-            <section class="col-3">
+            <section class="col-3 bg-light p-3 pl-4">
                 <!-- City search block -->
-                <div>
-                    <h3>Search for a City:</h2>
-                    <form id="city-search">
-                        <input type="text" autofocus="true" name="city" id="city">
-                        <button type="submit">🔎</button>
-                    </form>
-                </div>
+                <form id="city-search" class="form-group">
+                    <label for="city" class="font-weight-bold">Search for a City:</label>
+                    <div class="form-inline">
+                        <input type="text" autofocus="true" name="city" id="city" class="form-control">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="oi oi-magnifying-glass"></span>
+                        </button>
+                    </div>
+                </form>
                 <!-- City list -->
-                <ul>
+                <ul class="list-group">
                     <!-- List items added with JS -->
-                    <li>Austin</li>
-                    <li>Chicago</li>
-                    <li>New York</li>
-                    <li>Orlando</li>
-                    <li>San Francisco</li>
+                    <li class="list-group-item">Austin</li>
+                    <li class="list-group-item">Chicago</li>
+                    <li class="list-group-item">New York</li>
+                    <li class="list-group-item">Orlando</li>
+                    <li class="list-group-item">San Francisco</li>
                 </ul>
             </section>
             <!-- Weather info section -->
