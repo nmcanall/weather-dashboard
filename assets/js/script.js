@@ -1,5 +1,6 @@
 // Global variables
 var currentCityHeaderEl = document.querySelector("#current-city-header");
+var fiveDayContainerEl = document.querySelector("#five-day-container");
 
 // Fetch weather data
 var getWeatherData = function(city) {
@@ -29,6 +30,7 @@ var getWeatherData = function(city) {
     // Function that provides functionality to build page
     .then(function(data) {
         printCurrentData(data, city);
+        printFiveDay(data);
     })
 
     // Error if bad connection to server
@@ -37,6 +39,7 @@ var getWeatherData = function(city) {
     // });
 };
 
+// Function to build data in current weather conditions block
 var printCurrentData = function(data, city) {
 
     // Update the current city data header
@@ -73,9 +76,48 @@ var printCurrentData = function(data, city) {
     }
 };
 
+// Function to build 5 day weather cards
 var printFiveDay = function(data) {
 
+    // Clear the current data
+    fiveDayContainerEl.innerHTML = "";
+
+    // Loop through each day
+    for(var i = 0; i < 5; i++) {
+        buildCard(data.daily[i]);
+    }
 };
+
+// Helper method to build a single card and add to container
+var buildCard = function(data) {
+
+    // Get appropriate data
+    var date = convertDate(data.dt);
+    var iconImgEl = getIcon(data.weather[0].icon, data.weather[0].description);
+    var temp = data.temp.day;
+    var humidity = data.humidity;
+
+    // Build card in DOM
+    var cardEl = document.createElement("div");
+    cardEl.classList = "col card text-white bg-primary p-3 m-1";
+
+    // Build elements inside the card in DOM
+    var titleEl = document.createElement("h4");
+    titleEl.classList = "card-title";
+    titleEl.textContent = date;
+    iconImgEl.classList = "w-50 h-auto";
+    var tempEl = document.createElement("p");
+    tempEl.textContent = "Temp: " + temp + " °F"; 
+    var humidityEl = document.createElement("p");
+    humidityEl.textContent = "Humidity: " + humidity + "%";
+
+    // Add elements to card container, then add card to 5 day container
+    cardEl.appendChild(titleEl);
+    cardEl.appendChild(iconImgEl);
+    cardEl.appendChild(tempEl);
+    cardEl.appendChild(humidityEl);
+    fiveDayContainerEl.appendChild(cardEl);
+}
 
 // Helper method to get the weather icon
 var getIcon = function(iconCode, description) {
