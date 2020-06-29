@@ -1,14 +1,12 @@
 // Global variables
+var cities = [];
 var currentCityHeaderEl = document.querySelector("#current-city-header");
 var fiveDayContainerEl = document.querySelector("#five-day-container");
 var cityFormEl = document.querySelector("#city-search");
+var cityListEl = document.querySelector("#city-list");
 
 // Fetch weather data
 var getWeatherData = function(city) {
-    // If there is no current city, initiate for the best place ever
-    if(!city) {
-        city = "asheville";
-    }
 
     var apiURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=7fc21c7de7016c8d72a7a8f065f6d9c4";
 
@@ -34,6 +32,7 @@ var getWeatherData = function(city) {
     .then(function(data) {
         printCurrentData(data, city);
         printFiveDay(data);
+        saveCity(city);
     })
 
     // Error if bad connection to server
@@ -122,6 +121,48 @@ var buildCard = function(data) {
     fiveDayContainerEl.appendChild(cardEl);
 }
 
+// Adds city to the list of previous searches
+var addCityToList = function(city) {
+
+    // Build city element
+    var cityEl = document.createElement("li");
+    cityEl.classList = "list-group-item text-capitalize city-list-item";
+    cityEl.textContent = city;
+
+    // Add city to the list
+    cityListEl.appendChild(cityEl);
+}
+
+// Retrieves cities from local storage on page load
+var retrieveCities = function() {
+
+    var storageObject = JSON.parse(localStorage.getItem("cities"));
+    if(storageObject) {
+        cities = storageObject;
+    }
+
+    // If there are currently no cities in the array, display the best city ever
+    if(cities.length === 0) {
+        getWeatherData("asheville");
+    }
+    else {
+        getWeatherData(cities[0]);
+        for(var i = 0; i < cities.length; i++) {
+            addCityToList(cities[i]);
+        }
+    }
+}
+
+// Save city to local storage
+var saveCity = function(city) {
+    city = city.toLowerCase();
+    if(!cities.includes(city)) {
+        cities.push(city);
+        addCityToList(city);
+        localStorage.setItem("cities", JSON.stringify(cities));
+    }
+}
+
 // Helper method to get the weather icon
 var getIcon = function(iconCode, description) {
     var iconImg = document.createElement("img");
@@ -154,5 +195,14 @@ var formSubmitHandler = function(event) {
     }
 }
 
-// getWeatherData("");
+// Click on previously saved city
+var cityClickHandler = function(event) {
+    getWeatherData(event.target.textContent);
+}
+
+// Event listeners
 cityFormEl.addEventListener("submit", formSubmitHandler);
+cityListEl.addEventListener("click", cityClickHandler)
+
+// On page load
+retrieveCities();
