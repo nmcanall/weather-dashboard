@@ -12,6 +12,11 @@ OpenWeather API <br/>
 Application presents a basic HTML5 design, with CSS3 to add styling to the framework.
 It uses JavaScript to build the weather cards with data pulled from OpenWeather API.
 
+## Pending Updates
+1) Next steps, add media queries for better layouts on smaller devices. <br/>
+2) Add fancy CSS to make the page more visually appealing. <br/>
+3) Add a remove button on the city list.
+
 ## Links
 GitHub Repository: https://github.com/nmcanall/weather-dashboard <br/>
 Deployed Site: https://nmcanall.github.io/weather-dashboard/

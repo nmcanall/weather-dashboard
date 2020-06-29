@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <title>Weather Dashboard</title>
+    </head>
+    <body>
+        <!-- Header content -->
+        <header>
+            <h1 class="p-3 bg-dark text-white text-center mb-0">Weather Dashboard</h1>
+        </header>
+        <!-- Main content -->
+        <main class="row">
+            <!-- Card to search for and view previous cities -->
+            <section class="col-3 bg-light p-3 pl-4">
+                <!-- City search block -->
+                <form id="city-search" class="form-group">
+                    <label for="city" class="font-weight-bold">Search for a City:</label>
+                    <div class="form-inline">
+                        <input type="text" autofocus="true" name="city" id="city" class="form-control">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="oi oi-magnifying-glass"></span>
+                        </button>
+                    </div>
+                </form>
+                <!-- City list -->
+                <ul class="list-group" id="city-list">
+                    <!-- List items added with JS -->
+                    <!-- <li class="list-group-item text-capitalize">Austin</li> -->
+                </ul>
+            </section>
+            <!-- Weather info section -->
+            <section class="col-9">
+                <!-- City preview - h2 and spans will be added using JS-->
+                <div id="city-preview" class="card m-3 p-3">
+                    <h2 class="card-title text-capitalize" id="current-city-header">
+                        <!-- Atlanta 
+                        (6/27/2020) 
+                        <img src="http://openweathermap.org/img/wn/03d.png" alt="scattered clouds"> -->
+                    </h2>
+                    <div class="card-body">
+                        <p>Temperature: <span id="temperature"></span> °F</p>
+                        <p>Humidity: <span id="humidity"></span> %</p>
+                        <p>Wind Speed: <span id="wind-speed"></span> MPH</p>
+                        <p>UV Index: <span id="uv-index"></span></p>
+                    </div>
+                </div>
+                <!-- 5 day forecast -->
+                <div class="p-3">
+                    <h3>5-Day Forecast:</h3>
+                    <!-- all five cards will be added using JS -->
+                    <div class="row" id="five-day-container">
+                        <!-- <div class="col card text-white bg-primary p-3 m-1">
+                            <h4 class="card-title">6/28/2020</h4>
+                            <img src="http://openweathermap.org/img/wn/03d.png" alt="scattered clouds">
+                            <p>Temp: 86.84 °F</p>
+                            <p>Humidity: 43%</p>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="./assets/js/script.js"></script>
+    </body>
+</html>
