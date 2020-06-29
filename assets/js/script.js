@@ -20,7 +20,7 @@ var getWeatherData = function(city) {
         var lon = forecastData.city.coord.lon;
 
         // Once we get lat/long, use second fetch to retrieve data from OneCall API
-        var onecallURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=7fc21c7de7016c8d72a7a8f065f6d9c4"
+        var onecallURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=7fc21c7de7016c8d72a7a8f065f6d9c4"
         return fetch(onecallURL)
     })
 
