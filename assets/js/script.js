@@ -3,6 +3,11 @@ var currentCityHeaderEl = document.querySelector("#current-city-header");
 
 // Fetch weather data
 var getWeatherData = function(city) {
+    // If there is no current city, initiate for the best place ever
+    if(!city) {
+        city = "asheville";
+    }
+
     var apiURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=7fc21c7de7016c8d72a7a8f065f6d9c4";
 
     // Use first fetch to get latitude and longitude of user-input city
@@ -82,7 +87,11 @@ var getIcon = function(iconCode, description) {
 
 // Helper method to format date
 var convertDate = function(longDate) {
-    return longDate;
+    var date = new Date(longDate * 1000);
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1; // get month returns month 0-11
+    var day = date.getDate();
+    return month + "/" + day + "/" + year;
 }
 
-getWeatherData("Laguna Hills");
+getWeatherData("");
