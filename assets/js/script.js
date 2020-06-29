@@ -1,6 +1,7 @@
 // Global variables
 var currentCityHeaderEl = document.querySelector("#current-city-header");
 var fiveDayContainerEl = document.querySelector("#five-day-container");
+var cityFormEl = document.querySelector("#city-search");
 
 // Fetch weather data
 var getWeatherData = function(city) {
@@ -12,7 +13,8 @@ var getWeatherData = function(city) {
     var apiURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=7fc21c7de7016c8d72a7a8f065f6d9c4";
 
     // Use first fetch to get latitude and longitude of user-input city
-    fetch(apiURL).then(function(forecastResponse) {
+    fetch(apiURL)
+    .then(function(forecastResponse) {
         return forecastResponse.json(); 
     })
     .then(function(forecastData) {
@@ -23,10 +25,11 @@ var getWeatherData = function(city) {
         var onecallURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=7fc21c7de7016c8d72a7a8f065f6d9c4"
         return fetch(onecallURL)
     })
+
+    // Response to inner fetch
     .then(function(response) {
         return response.json();
     })
-
     // Function that provides functionality to build page
     .then(function(data) {
         printCurrentData(data, city);
@@ -34,9 +37,9 @@ var getWeatherData = function(city) {
     })
 
     // Error if bad connection to server
-    // .catch(function(error) {
-    //     alert("Unable to connect to OpenWeather");
-    // });
+    .catch(function(error) {
+        alert("Unable to find the requested city.");
+    });
 };
 
 // Function to build data in current weather conditions block
@@ -136,4 +139,20 @@ var convertDate = function(longDate) {
     return month + "/" + day + "/" + year;
 }
 
-getWeatherData("");
+// Submit the form
+var formSubmitHandler = function(event) {
+    event.preventDefault();
+    cityInputEl = document.querySelector("#city")
+    var city = cityInputEl.value.trim();
+
+    if(city) {
+        getWeatherData(city);
+        cityInputEl.value = "";
+    }
+    else {
+        alert("You must enter a city.");
+    }
+}
+
+// getWeatherData("");
+cityFormEl.addEventListener("submit", formSubmitHandler);
